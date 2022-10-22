@@ -22,10 +22,10 @@ public class CaseParticipator {
     private CaseParticipantCategory caseParticipantCategory;
 
     @ManyToMany
-    @JoinTable(name="caseparticipator_case",
+    @JoinTable(name="caseparticipator_crimecase",
             joinColumns=@JoinColumn(name = "caseparticipator_id"),
-            inverseJoinColumns=@JoinColumn(name = "case_id"))
-    private List<Case> cases;
+            inverseJoinColumns=@JoinColumn(name = "crimecases_id"))
+    private List<CrimeCase> crimeCases;
 
     @OneToMany(mappedBy = "caseParticipator", fetch =FetchType.EAGER)
     private Collection<Testimony> testimonies;
@@ -62,12 +62,12 @@ public class CaseParticipator {
         this.caseParticipantCategory = caseParticipantCategory;
     }
 
-    public List<Case> getCases() {
-        return cases;
+    public List<CrimeCase> getCrimeCases() {
+        return crimeCases;
     }
 
-    public void setCases(List<Case> cases) {
-        this.cases = cases;
+    public void setCrimeCases(List<CrimeCase> crimeCases) {
+        this.crimeCases = crimeCases;
     }
 
     public Collection<Testimony> getTestimonies() {
@@ -81,11 +81,11 @@ public class CaseParticipator {
     public CaseParticipator() {
     }
 
-    public CaseParticipator(String name, String surname, CaseParticipantCategory caseParticipantCategory, List<Case> cases, Collection<Testimony> testimonies) {
+    public CaseParticipator(String name, String surname, CaseParticipantCategory caseParticipantCategory, List<CrimeCase> crimeCases, Collection<Testimony> testimonies) {
         this.name = name;
         this.surname = surname;
         this.caseParticipantCategory = caseParticipantCategory;
-        this.cases = cases;
+        this.crimeCases = crimeCases;
         this.testimonies = testimonies;
     }
 }

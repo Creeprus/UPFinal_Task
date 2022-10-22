@@ -38,7 +38,7 @@ public class Employee {
     private Account account;
 
     @OneToMany(mappedBy = "employee", fetch =FetchType.LAZY)
-    private Collection<Case> cases;
+    private Collection<CrimeCase> cases;
 
     public Long getId() {
         return id;
@@ -104,18 +104,18 @@ public class Employee {
         this.account = account;
     }
 
-    public Collection<Case> getCases() {
+    public Collection<CrimeCase> getCases() {
         return cases;
     }
 
-    public void setCases(Collection<Case> cases) {
+    public void setCases(Collection<CrimeCase> cases) {
         this.cases = cases;
     }
 
     public Employee() {
     }
 
-    public Employee(String name, String surname, String patronymic, List<Adress> adresses, Dolj dolj, Department department, Account account, Collection<Case> cases) {
+    public Employee(String name, String surname, String patronymic, List<Adress> adresses, Dolj dolj, Department department, Account account, Collection<CrimeCase> cases) {
         this.name = name;
         this.surname = surname;
         this.patronymic = patronymic;

@@ -23,7 +23,7 @@ public class Clue {
     private String description;
 
     @ManyToOne(optional =true, cascade =CascadeType.ALL)
-    private Case cases;
+    private CrimeCase crimeCase;
 
     @OneToMany(mappedBy = "clues", fetch =FetchType.EAGER)
     private Collection<Expertise> expertise;
@@ -60,12 +60,12 @@ public class Clue {
         this.description = description;
     }
 
-    public Case getCases() {
-        return cases;
+    public CrimeCase getCases() {
+        return crimeCase;
     }
 
-    public void setCases(Case cases) {
-        this.cases = cases;
+    public void setCases(CrimeCase cases) {
+        this.crimeCase = cases;
     }
 
     public Collection<Expertise> getExpertise() {
@@ -79,11 +79,11 @@ public class Clue {
     public Clue() {
     }
 
-    public Clue(String location, String date_of_find, String description, Case cases, Collection<Expertise> expertise) {
+    public Clue(String location, String date_of_find, String description, CrimeCase crimecases, Collection<Expertise> expertise) {
         this.location = location;
         this.date_of_find = date_of_find;
         this.description = description;
-        this.cases = cases;
+        this.crimeCase = crimecases;
         this.expertise = expertise;
     }
 }

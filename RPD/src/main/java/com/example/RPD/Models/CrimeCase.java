@@ -9,12 +9,10 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-public class Case {
+public class CrimeCase {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @ManyToOne(optional =true, cascade =CascadeType.ALL)
-    private Employee employee;
 
     @Positive(message = "Значение не должно быть негативным")
     @NotNull
@@ -27,14 +25,16 @@ public class Case {
     @NotEmpty(message="Поле не должно быть пустым")
     private String date_of_case;
 
-    @OneToMany(mappedBy = "cases", fetch =FetchType.EAGER)
+    @OneToMany(mappedBy = "crimeCase", fetch =FetchType.LAZY)
     private Collection<Clue> clues;
 
     @ManyToMany
     @JoinTable(name="caseparticipator_case",
-            joinColumns=@JoinColumn(name = "case_id"),
+            joinColumns=@JoinColumn(name = "cases_id"),
             inverseJoinColumns=@JoinColumn(name = "caseparticipator_id"))
     private List<CaseParticipator> caseparticipators;
+    @ManyToOne(optional =true, cascade =CascadeType.ALL)
+    private Employee employee;
 
     public Long getId() {
         return id;
@@ -92,10 +92,10 @@ public class Case {
         caseparticipators = caseParticipators;
     }
 
-    public Case() {
+    public CrimeCase() {
     }
 
-    public Case(Employee employee, int number_of_case, String description, String date_of_case, Collection<Clue> clues, List<CaseParticipator> caseParticipators) {
+    public CrimeCase(Employee employee, int number_of_case, String description, String date_of_case, Collection<Clue> clues, List<CaseParticipator> caseParticipators) {
         this.employee = employee;
         this.number_of_case = number_of_case;
         this.description = description;
