@@ -1,6 +1,7 @@
-package Controllers;
+package com.example.RPD.Controllers;
 
-import Repository.AccountRepositry;
+
+import com.example.RPD.Repository.AccountRepositry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 

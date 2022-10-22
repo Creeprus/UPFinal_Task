@@ -1,4 +1,4 @@
-package Models;
+package com.example.RPD.Models;
 
 import org.springframework.security.core.GrantedAuthority;
 

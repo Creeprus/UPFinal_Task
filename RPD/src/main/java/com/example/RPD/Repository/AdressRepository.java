@@ -1,6 +1,7 @@
-package Repository;
+package com.example.RPD.Repository;
 
-import Models.Adress;
+
+import com.example.RPD.Models.Adress;
 import org.springframework.data.repository.CrudRepository;
 
 public interface AdressRepository extends CrudRepository<Adress,Long> {

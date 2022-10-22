@@ -1,6 +1,6 @@
-package Repository;
+package com.example.RPD.Repository;
 
-import Models.Dolj;
+import com.example.RPD.Models.Dolj;
 import org.springframework.data.repository.CrudRepository;
 
 public interface DoljRepository extends CrudRepository<Dolj,Long> {

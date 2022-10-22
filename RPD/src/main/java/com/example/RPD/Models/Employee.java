@@ -1,4 +1,4 @@
-package Models;
+package com.example.RPD.Models;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -37,7 +37,7 @@ public class Employee {
     @JoinColumn(name="account_id")
     private Account account;
 
-    @OneToMany(mappedBy = "employee", fetch =FetchType.EAGER)
+    @OneToMany(mappedBy = "employee", fetch =FetchType.LAZY)
     private Collection<Case> cases;
 
     public Long getId() {

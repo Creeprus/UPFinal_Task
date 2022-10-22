@@ -1,5 +1,4 @@
-package Models;
-
+package com.example.RPD.Models;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;

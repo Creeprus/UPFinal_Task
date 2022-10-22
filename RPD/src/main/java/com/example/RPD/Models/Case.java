@@ -1,4 +1,4 @@
-package Models;
+package com.example.RPD.Models;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -29,11 +29,12 @@ public class Case {
 
     @OneToMany(mappedBy = "cases", fetch =FetchType.EAGER)
     private Collection<Clue> clues;
+
     @ManyToMany
     @JoinTable(name="caseparticipator_case",
             joinColumns=@JoinColumn(name = "case_id"),
             inverseJoinColumns=@JoinColumn(name = "caseparticipator_id"))
-    private List<CaseParticipator> CaseParticipators;
+    private List<CaseParticipator> caseparticipators;
 
     public Long getId() {
         return id;
@@ -84,11 +85,11 @@ public class Case {
     }
 
     public List<CaseParticipator> getCaseParticipators() {
-        return CaseParticipators;
+        return caseparticipators;
     }
 
     public void setCaseParticipators(List<CaseParticipator> caseParticipators) {
-        CaseParticipators = caseParticipators;
+        caseparticipators = caseParticipators;
     }
 
     public Case() {
@@ -100,6 +101,6 @@ public class Case {
         this.description = description;
         this.date_of_case = date_of_case;
         this.clues = clues;
-        CaseParticipators = caseParticipators;
+        caseparticipators = caseParticipators;
     }
 }

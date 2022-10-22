@@ -1,6 +1,7 @@
-package Repository;
+package com.example.RPD.Repository;
 
-import Models.Testimony;
+
+import com.example.RPD.Models.Testimony;
 import org.springframework.data.repository.CrudRepository;
 
 public interface TestimonyRepository extends CrudRepository<Testimony,Long> {

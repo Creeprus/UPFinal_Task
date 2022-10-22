@@ -1,6 +1,7 @@
-package Repository;
+package com.example.RPD.Repository;
 
-import Models.Account;
+
+import com.example.RPD.Models.Account;
 import org.springframework.data.repository.CrudRepository;
 
 public interface AccountRepositry extends CrudRepository<Account,Long> {
