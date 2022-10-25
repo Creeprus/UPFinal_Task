@@ -12,7 +12,7 @@ public class Dolj {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @NotEmpty(message="Поле не должно быть пустым")
-    @Size(min=10,max=50,message="Поле должно содержать не менуе 10х и не более 50 символов")
+    @Size(min=5,max=50,message="Поле должно содержать не менее 5 и не более 50 символов")
     private String name;
     @Positive(message = "Значение не должно быть негативным")
     @NotNull

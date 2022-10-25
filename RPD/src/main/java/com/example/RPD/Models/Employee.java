@@ -14,10 +14,10 @@ public class Employee {
     private Long id;
 
     @NotEmpty(message="Поле не должно быть пустым")
-    @Size(min=3,max=30,message="Поле должно содержать не менне 3х и не более 30 символов")
+    @Size(min=3,max=30,message="Поле должно содержать не менее 3х и не более 30 символов")
     private String name;
     @NotEmpty(message="Поле не должно быть пустым")
-    @Size(min=3,max=30,message="Поле должно содержать не менне 3х и не более 30 символов")
+    @Size(min=3,max=30,message="Поле должно содержать не менее 3х и не более 30 символов")
     private String surname;
 
     @NotBlank(message="Пробелы недопустимы")
@@ -27,9 +27,9 @@ public class Employee {
             joinColumns=@JoinColumn(name = "employee_id"),
             inverseJoinColumns=@JoinColumn(name = "adress_id"))
     private List<Adress> adresses;
-    @ManyToOne(optional =true, cascade =CascadeType.ALL)
+    @ManyToOne(optional =true)
     private Dolj dolj;
-    @ManyToOne(optional =true, cascade =CascadeType.ALL)
+    @ManyToOne(optional =true)
     private Department department;
 
 

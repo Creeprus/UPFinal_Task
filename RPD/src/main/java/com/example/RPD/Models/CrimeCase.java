@@ -33,7 +33,7 @@ public class CrimeCase {
             joinColumns=@JoinColumn(name = "cases_id"),
             inverseJoinColumns=@JoinColumn(name = "caseparticipator_id"))
     private List<CaseParticipator> caseparticipators;
-    @ManyToOne(optional =true, cascade =CascadeType.ALL)
+    @ManyToOne(optional =true)
     private Employee employee;
 
     public Long getId() {
