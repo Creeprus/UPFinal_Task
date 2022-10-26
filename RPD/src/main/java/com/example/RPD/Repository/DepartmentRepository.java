@@ -9,4 +9,5 @@ import java.util.List;
 
 public interface DepartmentRepository extends CrudRepository<Department,Long> {
     public List<Department> findByLocationContaining(String name);
+    public List<Department> findByLocation(String name);
 }

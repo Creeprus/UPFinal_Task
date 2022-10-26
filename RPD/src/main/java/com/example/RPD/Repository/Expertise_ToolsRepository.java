@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface Expertise_ToolsRepository extends CrudRepository<ExpertiseTools,Long> {
     List <ExpertiseTools> findByExpertisetoolContaining(String name);
+    List <ExpertiseTools> findByExpertisetool(String name);
 }

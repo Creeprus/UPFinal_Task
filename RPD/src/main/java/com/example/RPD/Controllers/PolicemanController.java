@@ -82,6 +82,15 @@ public class PolicemanController {
         model.addAttribute("listCaseFiltered",crimeCases);
         return "/Policeman/CrimeCase/CrimeCaseFilter";
     }
+    @GetMapping("/CrimeCase/CrimeCaseFilterNoCategory")
+    public String CrimeCaseFilterNoCategory(
+            @RequestParam(name="search_name") String name,
+            Model model)
+    {
+        List<CrimeCase> crimeCases=crimeCaseRepository.findByDescription(name);
+        model.addAttribute("listCaseFiltered",crimeCases);
+        return "/Policeman/CrimeCase/CrimeCaseFilterNoCategory";
+    }
     @GetMapping ("/CrimeCase/CrimeCaseDelete/{id}")
     public String CrimeCaseDelete(@PathVariable Long id)
     {
@@ -182,6 +191,15 @@ public class PolicemanController {
         model.addAttribute("caseParticipantCategoriesFilter",caseParticipantCategories);
         return "/Policeman/CaseParticipatorCategory/CaseParticipatorCategoryFilter";
     }
+    @GetMapping("/CaseParticipatorCategory/CaseParticipatorCategoryFilterNoCategory")
+    public String CaseParticipatorCategoryFilterNoCategory(
+            @RequestParam(name="search_name") String name,
+            Model model)
+    {
+        List<CaseParticipantCategory> caseParticipantCategories=caseParticipantCategoryRepository.findByCategory(name);
+        model.addAttribute("caseParticipantCategoriesFilter",caseParticipantCategories);
+        return "/Policeman/CaseParticipatorCategory/CaseParticipatorCategoryFilterNoCategory";
+    }
     @GetMapping ("/CaseParticipatorCategory/CaseParticipatorCategoryDelete/{id}")
     public String CaseParticipatorCategoryDelete(@PathVariable Long id)
     {
@@ -272,6 +290,15 @@ public class PolicemanController {
         List<CaseParticipator> caseParticipatorsFilter=caseParticipatorRepository.findByNameContaining(name);
         model.addAttribute("caseParticipatorsFilter",caseParticipatorsFilter);
         return "/Policeman/CaseParticipator/CaseParticipatorFilter";
+    }
+    @GetMapping("/CaseParticipator/CaseParticipatorFilterNoCategory")
+    public String CaseParticipatorFilterNoCategory(
+            @RequestParam(name="search_name") String name,
+            Model model)
+    {
+        List<CaseParticipator> caseParticipatorsFilter=caseParticipatorRepository.findByName(name);
+        model.addAttribute("caseParticipatorsFilter",caseParticipatorsFilter);
+        return "/Policeman/CaseParticipator/CaseParticipatorFilterNoCategory";
     }
     @GetMapping ("/CaseParticipator/CaseParticipatorDelete/{id}")
     public String CaseParticipatorDelete(@PathVariable Long id)

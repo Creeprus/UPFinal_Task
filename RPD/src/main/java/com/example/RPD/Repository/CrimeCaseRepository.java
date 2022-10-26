@@ -9,5 +9,6 @@ import java.util.List;
 
 public interface CrimeCaseRepository extends CrudRepository<CrimeCase,Long> {
     public List<CrimeCase> findByDescriptionContaining(String name);
+    public List<CrimeCase> findByDescription(String name);
     CrimeCase findCrimeCaseByDescription(String name);
 }

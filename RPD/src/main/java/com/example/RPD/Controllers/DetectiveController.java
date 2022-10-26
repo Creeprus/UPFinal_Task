@@ -116,7 +116,15 @@ public class DetectiveController {
         model.addAttribute("testimonies",testimonies);
         return "/Detective/Testimony/TestimonyFilter";
     }
-
+    @GetMapping("/Testimony/TestimonyFilterNoCategory")
+    public String TestimonyFilterNoCategory(
+            @RequestParam(name="search_name") String name,
+            Model model)
+    {
+        List<Testimony> testimonies=testimonyRepository.findByCaseParticipator_Surname(name);
+        model.addAttribute("testimonies",testimonies);
+        return "/Detective/Testimony/TestimonyFilterNoCategory";
+    }
     //Clue
 
     @GetMapping("/Clue/ClueView")
@@ -206,5 +214,13 @@ public class DetectiveController {
         model.addAttribute("clues",clues);
         return "/Detective/Clue/ClueFilter";
     }
-
+    @GetMapping("/Clue/ClueFilterNoCategory")
+    public String ClueFilterNoCategory(
+            @RequestParam(name="search_name") String name,
+            Model model)
+    {
+        List<Clue> clues=clueRepository.findByDescription(name);
+        model.addAttribute("clues",clues);
+        return "/Detective/Clue/ClueFilterNoCategory";
+    }
 }

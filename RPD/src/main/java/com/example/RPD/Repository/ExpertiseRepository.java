@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface ExpertiseRepository extends CrudRepository<Expertise,Long> {
     List<Expertise> findByResultContaining(String name);
+    List<Expertise> findByResult(String name);
 }

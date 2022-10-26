@@ -99,6 +99,15 @@ public class ExpertiseController {
         model.addAttribute("expertiseTools",expertiseTools);
         return "/Expertise/Expertise_Tool/Expertise_ToolFilter";
     }
+    @GetMapping("/Expertise_Tool/Expertise_ToolFilterNoCategory")
+    public String Expertise_ToolFilterNoCategory(
+            @RequestParam(name="search_name") String name,
+            Model model)
+    {
+        List<ExpertiseTools> expertiseTools=expertise_toolsRepository.findByExpertisetool(name);
+        model.addAttribute("expertiseTools",expertiseTools);
+        return "/Expertise/Expertise_Tool/Expertise_ToolFilterNoCategory";
+    }
     @GetMapping("/Expertise/ExpertiseView")
     public String Expertise(Model model)
     {
@@ -185,5 +194,14 @@ public class ExpertiseController {
         List<Expertise> expertiseFilter=expertiseRepository.findByResultContaining(name);
         model.addAttribute("expertiseFilter",expertiseFilter);
         return "/Expertise/Expertise/ExpertiseFilter";
+    }
+    @GetMapping("/Expertise/ExpertiseFilterNoCategory")
+    public String ExpertiseFilterNoCategory(
+            @RequestParam(name="search_name") String name,
+            Model model)
+    {
+        List<Expertise> expertiseFilter=expertiseRepository.findByResult(name);
+        model.addAttribute("expertiseFilter",expertiseFilter);
+        return "/Expertise/Expertise/ExpertiseFilterNoCategory";
     }
 }

@@ -84,6 +84,15 @@ public class HRController {
         model.addAttribute("empfiltered",emp);
         return "/HR/EmployeeFilter";
     }
+    @GetMapping("/HR/EmployeeFilterNoCategory")
+    public String EmpFilterNoCategory(
+            @RequestParam(name="search_name") String name,
+            Model model)
+    {
+        List<Employee> emp=employeeRepository.findByName(name);
+        model.addAttribute("empfiltered",emp);
+        return "/HR/EmployeeFilterNoCategory";
+    }
 
     @GetMapping("/HR/EmployeeDetail/{id}")
     public String EmpDetails(@PathVariable Long id,
@@ -235,6 +244,15 @@ public class HRController {
         model.addAttribute("listDepartmentFilter",listDepartmentFilter);
         return "/HR/DepartmentFilter";
     }
+    @GetMapping("/HR/DepartmentFilterNoCategory")
+    public String DepartmentFilterNoCategory(
+            @RequestParam(name="search_name") String name,
+            Model model)
+    {
+        List<Department> listDepartmentFilter=departmentRepository.findByLocation(name);
+        model.addAttribute("listDepartmentFilter",listDepartmentFilter);
+        return "/HR/DepartmentFilterNoCategory";
+    }
 
 
     ///Dolj
@@ -315,6 +333,15 @@ public class HRController {
         model.addAttribute("listDoljFilter",listDoljFilter);
         return "/HR/DoljFilter";
     }
+    @GetMapping("/HR/DoljFilterNoCategory")
+    public String DoljFilterNoCategory(
+            @RequestParam(name="search_name") String name,
+            Model model)
+    {
+        List<Dolj> listDoljFilter=doljRepository.findByName(name);
+        model.addAttribute("listDoljFilter",listDoljFilter);
+        return "/HR/DoljFilterNoCategory";
+    }
     //Adress
 
     @GetMapping("/HR/AdressView")
@@ -356,7 +383,15 @@ public class HRController {
         model.addAttribute("listAdressFilter",listAdressFilter);
         return "/HR/AdressFilter";
     }
-
+    @GetMapping("/HR/AdressFilterNoCategory")
+    public String AdressFilterNoCategory(
+            @RequestParam(name="search_name") String name,
+            Model model)
+    {
+        List<Adress> listAdressFilter=adressRepository.findFirstByLocation(name);
+        model.addAttribute("listAdressFilter",listAdressFilter);
+        return "/HR/AdressFilterNoCategory";
+    }
     @GetMapping("/HR/AdressDetail/{id}")
     public String AdressDetails(@PathVariable Long id,
                              Model model)
