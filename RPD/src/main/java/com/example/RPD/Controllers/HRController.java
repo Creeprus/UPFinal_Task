@@ -4,6 +4,7 @@ import com.example.RPD.Models.*;
 import com.example.RPD.Repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,6 +17,8 @@ import java.util.Optional;
 @Controller
 @PreAuthorize("hasAnyAuthority('ADMIN','HR')")
 public class HRController {
+    @Autowired
+    private PasswordEncoder passwordEncoder;
     @Autowired
     EmployeeRepository employeeRepository;
     @Autowired
@@ -62,6 +65,7 @@ public class HRController {
         {
             return "/HR/EmployeeAdd";
         }
+        account.setPassword(passwordEncoder.encode(account.getPassword()));
         account = accountRepository.save(account);
         employee.setAccount(account);
         employee.setDolj(doljRepository.findById(listDolj).orElseThrow());
@@ -126,25 +130,25 @@ public class HRController {
     }
     @PostMapping ("/HR/EmployeeEdit/{id}")
     public String EmpEdit(   @Valid Employee employee,
-                             @Valid Account account,
+                             BindingResult bindingResult,
                              @RequestParam Long dolj,
                              @RequestParam Long department,
-                             BindingResult bindingResult,
+                             @RequestParam Long account,
+
                              Model model)
     {
 
         if (bindingResult.hasErrors())
         {
             model.addAttribute("employee",employee);
-            model.addAttribute("account",account);
+
             return "/HR/EmployeeEdit";
         }
-       // account = accountRepository.save(account);
-       employee=employeeRepository.findById(employee.getId()).orElseThrow();
-        Optional<Department> department1 = departmentRepository.findById(department);
+        employee.setAccount(accountRepository.findById(account).orElseThrow());
         employee.setDepartment(departmentRepository.findById(department).orElseThrow());
         employee.setDolj(doljRepository.findById(dolj).orElseThrow());
-       // employee.setDepartment();
+
+
         employeeRepository.save(employee);
         return "redirect:/HR/EmployeeView";
     }

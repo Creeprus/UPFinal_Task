@@ -7,15 +7,15 @@
     <title>Title</title>
 </head>
 <body>
-<div th:insert="Header/header :: headerHR"></div>
-<form method="post" th:object="${listCase}">
+<div th:insert="Header/header :: headerPolice"></div>
+<form method="post" th:object="${crimeCase}">
     <input th:field="*{number_of_case}"  type="number" placeholder="Номер дела " name="number_of_case"><br>
     <div th:if="${#fields.hasErrors('number_of_case')}" th:errors="*{number_of_case}" style="color:red"></div><br>
     <input th:field="*{description}"  type="text" placeholder="Описание дела " name="description"><br>
     <div th:if="${#fields.hasErrors('description')}" th:errors="*{description}" style="color:red"></div><br>
     <input th:field="*{date_of_case}"  type="text" placeholder="Дата дела " name="date_of_case"><br>
 <div th:if="${#fields.hasErrors('date_of_case')}" th:errors="${date_of_case}" style="color:red"></div><br>
-
+<a>Ведущий делом:</a>
     <select name="listEmp">
         <div th:each="element : ${listEmp}">
             <option th:value="${element.id}" th:text="${element.surname}"></option>

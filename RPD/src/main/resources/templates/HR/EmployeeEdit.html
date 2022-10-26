@@ -16,7 +16,7 @@
     <div th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}" style="color:red"></div><br>
     <input th:field="*{patronymic}"  type="text" placeholder="Отчество " th:value="${employee.patronymic}" name="patronymic"><br>
     <div th:if="${#fields.hasErrors('patronymic')}" th:errors="*{patronymic}" style="color:red"></div><br>
-    <input th:field="*{account.id}"  type="hidden" ><br>
+    <input th:value="${employees.getAccount().getId()}" name="account" type="hidden" ><br>
 
     <select name="dolj">
         <div th:each="element : ${dolj}">

@@ -29,8 +29,8 @@ public class CrimeCase {
     private Collection<Clue> clues;
 
     @ManyToMany
-    @JoinTable(name="caseparticipator_case",
-            joinColumns=@JoinColumn(name = "cases_id"),
+    @JoinTable(name="caseparticipator_crimecase",
+            joinColumns=@JoinColumn(name = "crimecases_id"),
             inverseJoinColumns=@JoinColumn(name = "caseparticipator_id"))
     private List<CaseParticipator> caseparticipators;
     @ManyToOne(optional =true)
