@@ -67,20 +67,9 @@ public class PolicemanController {
     public String CrimeCaseDetails(@PathVariable Long id,
                              Model model)
     {
-        //Optional<Employee> employee = employeeRepository.findById(id);
-        CrimeCase crimeCase = crimeCaseRepository.findById(id).orElseThrow();
-     //   Optional<CaseParticipator> caseParticipator = caseParticipatorRepository.findById(id);
-//
-//       // ArrayList<Employee> res = new ArrayList<Employee>();
-//        ArrayList<CrimeCase> res_cs = new ArrayList<CrimeCase>();
-//  //      ArrayList<CaseParticipator> res_par = new ArrayList<CaseParticipator>();
-//
-////        employee.ifPresent(res::add);
-////        caseParticipator.ifPresent(res_par::add);
-//        crimeCase.ifPresent(res_cs::add);
 
-//        model.addAttribute("employee",res);
-//        model.addAttribute("caseParticipator",res_par);
+        CrimeCase crimeCase = crimeCaseRepository.findById(id).orElseThrow();
+
         model.addAttribute("crimeCase",crimeCase);
         return "/Policeman/CrimeCase/CrimeCaseDetail";
     }

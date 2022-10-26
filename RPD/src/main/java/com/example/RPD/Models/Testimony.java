@@ -12,7 +12,7 @@ public class Testimony {
 
     @NotEmpty(message="Поле не должно быть пустым")
     @Size(min=10,max=300,message="Поле должно содержать не менeе 10 и не более 300 символов")
-    private String testimony;
+    private String testimony_desc;
 
     @NotEmpty(message="Поле не должно быть пустым")
     @Size(min=10,max=30,message="Поле должно содержать не менeе 10 и не более 150 символов")
@@ -28,12 +28,12 @@ public class Testimony {
         this.id = id;
     }
 
-    public String getTestimony() {
-        return testimony;
+    public String getTestimony_desc() {
+        return testimony_desc;
     }
 
-    public void setTestimony(String testimony) {
-        this.testimony = testimony;
+    public void setTestimony_desc(String testimony_desc) {
+        this.testimony_desc = testimony_desc;
     }
 
     public String getDate_of_testimony() {
@@ -55,8 +55,8 @@ public class Testimony {
     public Testimony() {
     }
 
-    public Testimony(String testimony, String date_of_testimony, CaseParticipator caseParticipator) {
-        this.testimony = testimony;
+    public Testimony(String testimony_desc, String date_of_testimony, CaseParticipator caseParticipator) {
+        this.testimony_desc = testimony_desc;
         this.date_of_testimony = date_of_testimony;
         this.caseParticipator = caseParticipator;
     }
