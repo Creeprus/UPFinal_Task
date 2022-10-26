@@ -10,7 +10,7 @@
 <div th:insert="Header/header :: headerPolice"></div>
 <div class="row">
 
-    <h1>Список дел</h1>
+    <h1>Список категорий</h1>
     <div th:each="el: ${listCategory}">
         <p th:text="${el.category}"> </p>
         <a th:href="'/Policeman/CaseParticipatorCategory/CaseParticipatorCategoryEdit/'+${el.id}" class="btn btn-primary">Изменить</a>
@@ -22,7 +22,7 @@
     </form>
 
 </div>
-<a href="/Policeman/CaseParticipatorCategory/CaseParticipatorCategoryAdd" class="btn btn-light">Добавить дело</a><br>
+<a href="/Policeman/CaseParticipatorCategory/CaseParticipatorCategoryAdd" class="btn btn-light">Добавить категории</a><br>
 
 </body>
 

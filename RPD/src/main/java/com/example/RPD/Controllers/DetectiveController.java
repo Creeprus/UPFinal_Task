@@ -202,7 +202,7 @@ public class DetectiveController {
             @RequestParam(name="search_name") String name,
             Model model)
     {
-        List<Clue> clues=clueRepository.findByDescription(name);
+        List<Clue> clues=clueRepository.findByDescriptionContaining(name);
         model.addAttribute("clues",clues);
         return "/Detective/Clue/ClueFilter";
     }

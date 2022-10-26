@@ -17,7 +17,7 @@ public class Expertise {
     @ManyToOne(optional =true, cascade =CascadeType.ALL)
     private Clue clues;
     @ManyToOne(optional =true, cascade =CascadeType.ALL)
-    private Expertise_Tools expertise_tools;
+    private ExpertiseTools expertise_tools;
 
     public Long getId() {
         return id;
@@ -51,18 +51,18 @@ public class Expertise {
         this.clues = clues;
     }
 
-    public Expertise_Tools getExpertise_tools() {
+    public ExpertiseTools getExpertise_tools() {
         return expertise_tools;
     }
 
-    public void setExpertise_tools(Expertise_Tools expertise_tools) {
+    public void setExpertise_tools(ExpertiseTools expertise_tools) {
         this.expertise_tools = expertise_tools;
     }
 
     public Expertise() {
     }
 
-    public Expertise(String result, String date_of_expertise, Clue clues, Expertise_Tools expertise_tools) {
+    public Expertise(String result, String date_of_expertise, Clue clues, ExpertiseTools expertise_tools) {
         this.result = result;
         this.date_of_expertise = date_of_expertise;
         this.clues = clues;

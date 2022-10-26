@@ -7,5 +7,5 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface ClueRepository extends CrudRepository<Clue,Long> {
-    List<Clue> findByDescription(String name);
+    List<Clue> findByDescriptionContaining(String name);
 }

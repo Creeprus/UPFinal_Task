@@ -5,12 +5,13 @@ import javax.validation.constraints.Size;
 import java.util.Collection;
 
 @Entity
-public class Expertise_Tools {
+@Table(name = "expertisetools")
+public class ExpertiseTools {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Size(min=3,max=30,message="Поле должно содержать не менее 3х и не более 30 символов")
-    private String expertise_tool;
+    private String expertisetool;
     @OneToMany(mappedBy = "expertise_tools", fetch =FetchType.EAGER)
     private Collection<Expertise> expertise;
 
@@ -22,12 +23,12 @@ public class Expertise_Tools {
         this.id = id;
     }
 
-    public String getExpertise_tool() {
-        return expertise_tool;
+    public String getExpertisetool() {
+        return expertisetool;
     }
 
-    public void setExpertise_tool(String expertise_tool) {
-        this.expertise_tool = expertise_tool;
+    public void setExpertisetool(String expertisetool) {
+        this.expertisetool = expertisetool;
     }
 
     public Collection<Expertise> getExpertise() {
@@ -38,11 +39,11 @@ public class Expertise_Tools {
         this.expertise = expertise;
     }
 
-    public Expertise_Tools() {
+    public ExpertiseTools() {
     }
 
-    public Expertise_Tools(String expertise_tool, Collection<Expertise> expertise) {
-        this.expertise_tool = expertise_tool;
+    public ExpertiseTools(String expertisetool, Collection<Expertise> expertise) {
+        this.expertisetool = expertisetool;
         this.expertise = expertise;
     }
 }

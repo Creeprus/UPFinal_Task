@@ -55,7 +55,7 @@
           <li><a href="/Policeman/CrimeCase/CrimeCaseView" class="nav-link px-2 text-secondary">Дела</a></li>
           <li><a href="/HR/DepartmentView" class="nav-link px-2 text-secondary">Участки и сотрудники</a></li>
           <li><a href="/Detective/Testimony/TestimonyView" class="nav-link px-2 text-secondary">Улики и показания</a></li>
-          <li><a href="" class="nav-link px-2 text-secondary">Экспертиза</a></li>
+          <li><a href="/Expertise/Expertise_Tool/Expertise_ToolView" class="nav-link px-2 text-secondary">Экспертиза</a></li>
           <form th:action="@{/logout}" method="post" class="nav-link px-2 text-white">
             <input type="submit" value="Sign Out"/>
           </form>
@@ -122,6 +122,26 @@
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="/Detective/Testimony/TestimonyView" class="nav-link px-2 text-secondary">Показания</a></li>
           <li><a href="/Detective/Clue/ClueView" class="nav-link px-2 text-secondary">Улики</a></li>
+          <form th:action="@{/logout}" method="post" class="nav-link px-2 text-white">
+            <input type="submit" value="Sign Out"/>
+          </form>
+        </ul>
+
+      </div>
+    </div>
+  </header>
+</div>
+<div th:fragment="headerExpertise">
+  <header class="p-3 text-bg-dark">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="/Expertise/Expertise_Tool/Expertise_ToolView" class="nav-link px-2 text-secondary">Средства экспертизы</a></li>
+          <li><a href="/Expertise/Expertise/ExpertiseView" class="nav-link px-2 text-secondary">Экспертизы</a></li>
           <form th:action="@{/logout}" method="post" class="nav-link px-2 text-white">
             <input type="submit" value="Sign Out"/>
           </form>

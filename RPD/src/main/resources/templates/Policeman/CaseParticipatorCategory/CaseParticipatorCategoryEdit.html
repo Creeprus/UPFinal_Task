@@ -14,7 +14,7 @@
     <div th:if="${#fields.hasErrors('category')}" th:errors="*{category}" style="color:red"></div><br>
     <br>
     <input  type="submit" value="Изменить Категорию" class="btn btn-primary">
-
+    <a th:href="'/Policeman/CaseParticipatorCategory/CaseParticipatorCategoryView' "class="btn btn-warning"> Назад</a>
 </form>
 </body>
 </html>
