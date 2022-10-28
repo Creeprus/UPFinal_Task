@@ -11,4 +11,10 @@ public class DefaultController {
     {
         return "/Home";
     }
+
+//     @GetMapping("/error")
+//    public String errorView()
+//    {
+//        return "1";
+//    }
 }

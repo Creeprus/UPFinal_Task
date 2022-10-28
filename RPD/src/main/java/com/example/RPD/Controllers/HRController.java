@@ -191,6 +191,7 @@ public class HRController {
     }
     @PostMapping("/HR/DepartmentAdd")
     public String DepartmentAdd(
+
             @Valid Department department,
             BindingResult bindingResult,
             Model model)

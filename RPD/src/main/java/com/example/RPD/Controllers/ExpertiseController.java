@@ -135,6 +135,7 @@ public class ExpertiseController {
 
         if(bindingResult.hasErrors())
         {
+            model.addAttribute("expertise",expertise);
             return "/Expertise/Expertise/ExpertiseAdd";
         }
         expertise.setExpertise_tools(expertise_toolsRepository.findById(expertiseTools).orElseThrow());
@@ -203,5 +204,11 @@ public class ExpertiseController {
         List<Expertise> expertiseFilter=expertiseRepository.findByResult(name);
         model.addAttribute("expertiseFilter",expertiseFilter);
         return "/Expertise/Expertise/ExpertiseFilterNoCategory";
+    }
+    @GetMapping ("/Expertise/ExpertiseDelete/{id}")
+    public String ExpertiseDelete(@PathVariable Long id)
+    {
+        expertiseRepository.deleteById(id);
+        return "redirect:/Expertise/Expertise/ExpertiseView";
     }
 }
